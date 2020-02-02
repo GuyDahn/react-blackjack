@@ -1,12 +1,23 @@
-import React, { Component } from 'react';
-import './App.css';
+import React from 'react'
 
-export class App extends Component {
-  render() {
-    return (
-      <div className="app">
-        React App
-      </div>
-    )
+import { createGlobalStyle } from 'styled-components'
+import { GameScreen } from './screens/gameScreen/GameScreen'
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0;
+    padding: 0;
   }
+  div {
+    box-sizing: border-box;
+  }
+`
+
+export default function App () {
+  return (
+    <React.Fragment>
+      <GlobalStyle />
+      <GameScreen />
+    </React.Fragment>
+  )
 }
