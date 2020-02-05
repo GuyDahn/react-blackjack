@@ -1,21 +1,24 @@
 import { initialState } from '../../consts/data/initialState'
 import { actionTypes } from '../actions/actionTypes'
-import { removeCard } from '../actions'
+
 export default (state = initialState, action) => {
+    const { cards, cardsToPush } = getRandomCards(state.cardList, action.payload)
+
     switch (action.type) {
         case actionTypes.USER_GET_CARDS:
-            const { cards, cardsToPush } = getRandomCards(
-                state.cardList,
-                action.payload
-            )
-            console.log(cards, cardsToPush)
             return Object.assign({}, state, {
                 userCards: [...state.userCards, ...cardsToPush],
                 cardList: cards
             })
 
+        case actionTypes.ENEMY_GET_CARDS:
+            return Object.assign({}, state, {
+                enemyCards: [...state.enemyCards, ...cardsToPush],
+                cardList: cards
+            })
+
         case actionTypes.REMOVE_CARDS:
-            return Object.assige({}, state, {
+            return Object.assign({}, state, {
                 cards: removeCard(state.cardList, action.payload)
             })
 
@@ -24,9 +27,9 @@ export default (state = initialState, action) => {
     }
 }
 
-// function removeCard(cards, cardId) {
-//     return cards.filter(card => card.id !== cardId)
-// }
+function removeCard(cards, cardId) {
+    return cards.filter(card => card.id !== cardId)
+}
 
 function getRandomCards(cards, numOfCards) {
     let cardIndex = 0
@@ -37,7 +40,7 @@ function getRandomCards(cards, numOfCards) {
         cardIndex = Math.floor(cardIndex)
         const cardToPush = cards[cardIndex]
         cardsToPush.push(cardToPush)
-        cards = removeCard(cards, cardsToPush.id)
+        cards = removeCard(cards, cardToPush.id)
     }
 
     return { cards: cards, cardsToPush: cardsToPush }
