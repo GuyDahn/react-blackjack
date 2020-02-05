@@ -1,11 +1,11 @@
 import React from 'react'
 import { FullScreen } from '../../components/structure'
-import { COLORS } from '../../styles/colors'
+import { COLORS } from '../../consts/colors'
 import { PlayerHand } from './components/PlayerHand'
 import { connect } from 'react-redux'
 import * as actions from '../../redux/actions'
 
-function MainScreen(props) {
+function GameScreenConnected(props) {
     return (
         <FullScreen color={COLORS.GREEN}>
             {/*
@@ -22,4 +22,4 @@ function MainScreen(props) {
 export const GameScreen = connect(
     null,
     actions
-)(MainScreen)
+)(GameScreenConnected)
