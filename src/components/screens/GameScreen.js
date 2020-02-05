@@ -5,18 +5,24 @@ import { PlayerHand } from '../PlayerHand'
 import { EnemyHand } from '../EnemyHand'
 import { connect } from 'react-redux'
 import * as actions from '../../redux/actions'
+import gameLogic from '../../gameLogic'
 
 function GameScreenConnected(props) {
+    const enemyCards = props.cards.enemyCards
+    const playerCards = props.cards.playerCards
+
     function handleUserButton() {
+        console.log('player');
         props.userGetCards(1)
     }
     function handleEnemyButton() {
+        console.log('enemy');
         props.enemyGetCards(1)
     }
 
     return (
         <FullScreen color={COLORS.GREEN}>
-            {/* TODO Remove this buton later*/}
+            {/*temporarily buttons to remove later*/}
             <button onClick={handleUserButton}>Add cards</button>
             <button onClick={handleEnemyButton}>Add enemy cards</button>
             {/*
@@ -24,15 +30,15 @@ function GameScreenConnected(props) {
             <HouseHand />
             <Menu />
             */}
-            <EnemyHand cards={props.cards.enemyCards} />
-            <PlayerHand cards={props.cards.userCards} />
+            <EnemyHand cards={enemyCards} />
+            <PlayerHand cards={userCards} />
         </FullScreen>
     )
 }
 
 const mapStateToProps = state => {
-    const { cards } = state
-    return { cards }
+    const { cards, player } = state
+    return { cards, player }
 }
 export const GameScreen = connect(
     mapStateToProps,

@@ -1,8 +1,8 @@
 import { actionTypes } from './actionTypes'
 
-export function userCards(numberOfCards) {
+export function playerCards(numberOfCards) {
     return {
-        type: actionTypes.USER_GET_CARDS,
+        type: actionTypes.PLAYER_GET_CARDS,
         payload: numberOfCards
     }
 }
@@ -18,5 +18,17 @@ export function removeCard(cardId) {
     return {
         type: actionTypes.REMOVE_CARDS,
         payload: cardId
+    }
+}
+
+export function playerWin() {
+    return {
+        type: actionTypes.WIN
+    }
+}
+
+export function playerLose() {
+    return {
+        type: actionTypes.LOSE
     }
 }
