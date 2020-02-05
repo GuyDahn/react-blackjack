@@ -6,7 +6,7 @@ import reducers from './redux/reducers'
 import {composeWithDevTools} from 'redux-devtools-extension'
 
 import { createGlobalStyle } from 'styled-components'
-import { GameScreen } from './screens/gameScreen/GameScreen'
+import { GameScreen } from './components/screens/GameScreen'
 import { initialState } from './consts/data/initialState'
 
 

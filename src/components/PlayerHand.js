@@ -1,8 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Container, Row } from './structure/StructureComponents'
 import { Card } from '../classes/Card'
-import { CardComponent  } from './CardComponent '
+
+import { Container, Row } from './structure/StructureComponents'
+import { CardComponent } from './CardComponent '
+
+import {props} from 'bluebird'
 
 export function PlayerHand() {
     return (
@@ -12,7 +15,7 @@ export function PlayerHand() {
                     <CardComponent 
                         key={card.id}
                         image={card.image}
-                        name={card.id}
+                        name={card.name}
                     />
                 ))}
             </Row>

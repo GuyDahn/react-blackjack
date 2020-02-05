@@ -1,7 +1,7 @@
 import React from 'react'
-import { FullScreen } from '../../components/structure'
+import { FullScreen } from '../structure/StructureComponents'
 import { COLORS } from '../../consts/colors'
-import { PlayerHand } from './components/PlayerHand'
+import { PlayerHand } from '../PlayerHand'
 import { connect } from 'react-redux'
 import * as actions from '../../redux/actions'
 

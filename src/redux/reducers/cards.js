@@ -24,9 +24,9 @@ export default (state = initialState, action) => {
     }
 }
 
-function removeCard(cards, cardId) {
-    return cards.filter(card => card.id !== cardId)
-}
+// function removeCard(cards, cardId) {
+//     return cards.filter(card => card.id !== cardId)
+// }
 
 function getRandomCards(cards, numOfCards) {
     let cardIndex = 0
