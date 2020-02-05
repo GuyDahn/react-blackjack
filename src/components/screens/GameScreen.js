@@ -11,15 +11,18 @@ function GameScreenConnected(props) {
             {/*
             <Hud />
             <HouseHand />
-            <PlayerHand />
             <Menu />
             */}
-            <PlayerHand />
+            <PlayerHand cards={props.cards.userCards} />
         </FullScreen>
     )
 }
 
+const mapStateToProps = state => {
+    const { cards } = state
+    return { cards }
+}
 export const GameScreen = connect(
-    null,
+    mapStateToProps,
     actions
 )(GameScreenConnected)
