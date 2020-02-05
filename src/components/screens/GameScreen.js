@@ -6,8 +6,13 @@ import { connect } from 'react-redux'
 import * as actions from '../../redux/actions'
 
 function GameScreenConnected(props) {
+    function handleButton() {
+        props.userGetCards(2)
+    }
     return (
         <FullScreen color={COLORS.GREEN}>
+            {/* TODO Remove this buton later*/}
+            <button onClick={handleButton}>Add cards</button>
             {/*
             <Hud />
             <HouseHand />

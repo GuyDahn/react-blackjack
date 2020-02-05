@@ -11,15 +11,15 @@ const CardContainer = styled.div`
   }
 `
 
-export function CardComponent (props) {
-    return (
-        <CardContainer>
-            <img src={props.image} alt={props.name} />
-        </CardContainer>
-    )
+export function CardComponent(props) {
+  return (
+    <CardContainer>
+      <img src={props.image} alt={props.name} />
+    </CardContainer>
+  )
 }
 
 CardComponent.propTypes = {
-    image: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired
+  image: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired
 }

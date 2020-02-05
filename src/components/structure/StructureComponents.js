@@ -5,6 +5,7 @@ export const FullScreen = styled.div`
   height: 100vh;
   background: ${props => props.color};
 `
+
 export const Container = styled.div`
   max-width: ${props => (props.width ? props.width : '100%')};
   width: ${props => (props.width ? props.width : '100%')};
@@ -15,4 +16,6 @@ export const Container = styled.div`
 export const Row = styled.div`
   width: 100%;
   display: ${props => (props.display ? props.display : 'block')};
+  justify-content: ${props =>
+  props.justifyContent ? props.justifyContent : 'flext-start'};
 `
