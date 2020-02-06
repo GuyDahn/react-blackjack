@@ -6,7 +6,7 @@ import { EnemyHand } from '../EnemyHand'
 import { useSelector, useDispatch } from 'react-redux'
 import { playerGetCards, enemyGetCards } from '../../redux/actions'
 import { HUD } from '../screens/hud'
-import player from '../../redux/reducers/player'
+import { GameResultNotification } from './GameResultNotification '
 
 export function GameScreen() {
     const { cards, player } = useSelector(state => ({
@@ -16,12 +16,12 @@ export function GameScreen() {
 
     const enemyCards = cards.enemyCards
     const playerCards = cards.playerCards
-
     const dispatch = useDispatch()
 
     function handlePlayerButton() {
         dispatch(playerGetCards(1))
     }
+
     function handleEnemyButton() {
         dispatch(enemyGetCards(1))
     }
@@ -31,11 +31,12 @@ export function GameScreen() {
             {/*temporarily buttons to remove later*/}
             <button onClick={handlePlayerButton}>Add cards</button>
             <button onClick={handleEnemyButton}>Add enemy cards</button>
+            <GameResultNotification result={player.result} />
             {/*
             <HouseHand />
             <Menu />
             */}
-            <HUD money={player.money}/>
+            <HUD money={player.money} />
             <EnemyHand cards={enemyCards} />
             <PlayerHand cards={playerCards} />
         </FullScreen>

@@ -10,11 +10,11 @@ export default function * root() {
 
 function * callEndTurn() {
     const state = yield select()
-    const result = yield gameLogic.endTurn(
+    const gameResult = yield gameLogic.endTurn(
         state.cards.playerCards,
         state.cards.enemyCards
     )
 
-    if (result.win) yield put(playerWin())
-    if (result.lose) yield put(playerLose())
+    if (gameResult.win) yield put(playerWin())
+    if (gameResult.lose) yield put(playerLose())
 }
