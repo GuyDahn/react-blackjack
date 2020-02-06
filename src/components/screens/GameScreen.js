@@ -3,44 +3,41 @@ import { FullScreen } from '../structure/StructureComponents'
 import { COLORS } from '../../consts/colors'
 import { PlayerHand } from '../PlayerHand'
 import { EnemyHand } from '../EnemyHand'
-import { connect } from 'react-redux'
-import * as actions from '../../redux/actions'
-import gameLogic from '../../gameLogic'
+import { useSelector, useDispatch } from 'react-redux'
+import { playerGetCards, enemyGetCards } from '../../redux/actions'
+import { HUD } from '../screens/hud'
+import player from '../../redux/reducers/player'
 
-function GameScreenConnected(props) {
-    const enemyCards = props.cards.enemyCards
-    const playerCards = props.cards.playerCards
+export function GameScreen() {
+    const { cards, player } = useSelector(state => ({
+        cards: state.cards,
+        player: state.player
+    }))
 
-    function handleUserButton() {
-        console.log('player');
-        props.userGetCards(1)
+    const enemyCards = cards.enemyCards
+    const playerCards = cards.playerCards
+
+    const dispatch = useDispatch()
+
+    function handlePlayerButton() {
+        dispatch(playerGetCards(1))
     }
     function handleEnemyButton() {
-        console.log('enemy');
-        props.enemyGetCards(1)
+        dispatch(enemyGetCards(1))
     }
 
     return (
         <FullScreen color={COLORS.GREEN}>
             {/*temporarily buttons to remove later*/}
-            <button onClick={handleUserButton}>Add cards</button>
+            <button onClick={handlePlayerButton}>Add cards</button>
             <button onClick={handleEnemyButton}>Add enemy cards</button>
             {/*
-            <Hud />
             <HouseHand />
             <Menu />
             */}
+            <HUD money={player.money}/>
             <EnemyHand cards={enemyCards} />
-            <PlayerHand cards={userCards} />
+            <PlayerHand cards={playerCards} />
         </FullScreen>
     )
 }
-
-const mapStateToProps = state => {
-    const { cards, player } = state
-    return { cards, player }
-}
-export const GameScreen = connect(
-    mapStateToProps,
-    actions
-)(GameScreenConnected)

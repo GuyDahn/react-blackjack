@@ -1,4 +1,4 @@
-import { call, put, takeEvery, takeLatest, select } from 'redux-saga/effects'
+import { put, takeEvery, select } from 'redux-saga/effects'
 import { actionTypes } from './actions/actionTypes'
 import gameLogic from '../gameLogic'
 import { playerLose, playerWin } from "./actions";
@@ -14,7 +14,7 @@ function * callEndTurn() {
         state.cards.playerCards,
         state.cards.enemyCards
     )
-    
+
     if (result.win) yield put(playerWin())
     if (result.lose) yield put(playerLose())
 }

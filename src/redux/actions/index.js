@@ -1,6 +1,6 @@
 import { actionTypes } from './actionTypes'
 
-export function playerCards(numberOfCards) {
+export function playerGetCards(numberOfCards) {
     return {
         type: actionTypes.PLAYER_GET_CARDS,
         payload: numberOfCards
