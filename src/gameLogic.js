@@ -1,5 +1,4 @@
 import { GameResult } from './classes/GameResult'
-import { playerGetCards, enemyGetCards } from './redux/actions/actionTypes'
 
 export default {
     startGame: dispatch => { },
@@ -28,20 +27,20 @@ function checkGameConditions(playerCards, enemyCards) {
     return result
 }
 
-function removeCardFromPile(cards, cardID) {
+function removeCardfromPile(cards, cardID) {
     return cards.filter(card => card.id !== cardID)
 }
 
 export function getRandomCards(cards, numOfCards) {
     let cardIndex = 0
     let cardsToPush = []
-
+    
     for (let i = 0; i < numOfCards; i++) {
         cardIndex = Math.random() * cards.length
-        cardIndex = Math.floor(cardsIndex)
+        cardIndex = Math.floor(cardIndex)
         const cardToPush = cards[cardIndex]
         cardsToPush.push(cardToPush)
-        cards = removeCardFromPile(cards, cardToPush.id)
+        cards = removeCardfromPile(cards, cardToPush.id)
     }
 
     return { cards: cards, cardsToPush: cardsToPush }

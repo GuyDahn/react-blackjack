@@ -10,7 +10,7 @@ export function playerGetCards(numberOfCards) {
 export function enemyGetCards(numberOfCards) {
     return {
         type: actionTypes.ENEMY_GET_CARDS,
-        payLoad: numberOfCards
+        payload: numberOfCards
     }
 }
 
@@ -30,5 +30,17 @@ export function playerWin() {
 export function playerLose() {
     return {
         type: actionTypes.LOSE
+    }
+}
+
+export function startGame() {
+    return {
+        type: actionTypes.START_GAME
+    }
+}
+
+export function playerStand() {
+    return {
+        type: actionTypes.STAND
     }
 }

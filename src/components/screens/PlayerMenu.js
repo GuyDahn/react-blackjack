@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useDispatch } from 'react-redux'
-import { playerGetCards, enemyGetCards } from '../../redux/actions'
+import { playerGetCards } from '../../redux/actions'
 import { Container, Row } from "../structure/StructureComponents"
 
 const MenuContainer = styled.div`
@@ -13,20 +13,18 @@ const MenuContainer = styled.div`
 export function PlayerMenu() {
     const dispatch = useDispatch()
 
-    function handlePlayerButton() {
+    function handlePlayerHit() {
         dispatch(playerGetCards(1))
     }
 
-    function handleEnemyButton() {
-        dispatch(enemyGetCards(1))
-    }
+    function handlePlayerStand() { }
 
     return (
         <MenuContainer>
             <Container>
                 <Row displey='flex' justifyContent='center'>
-                    <button onClick={handlePlayerButton}>Add Cards</button>
-                    <button onClick={handleEnemyButton}>Add enemy cards</button>
+                    <button onClick={handlePlayerHit}>Hit</button>
+                    <button onClick={handlePlayerStand}>Stand</button>
                 </Row>
             </Container>
         </MenuContainer>
