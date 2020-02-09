@@ -6,26 +6,65 @@ import {
     playerWin,
     playerGetCards,
     enemyGetCards,
-    startGame
-} from "./actions";
+    playerDraw
+} from './actions'
 
-export default function * root() {
+export default function* root() {
     yield takeEvery(actionTypes.PLAYER_GET_CARDS, endTurn)
     yield takeEvery(actionTypes.ENEMY_GET_CARDS, endTurn)
     yield takeEvery(actionTypes.START_GAME, startGame)
+    yield takeEvery(actionTypes.STAND, enemyTurn)
 }
-function * startGame() {
+
+function* startGame() {
     yield put(playerGetCards(2))
     yield put(enemyGetCards(2))
 }
 
-function * endTurn() {
+function* endTurn(enemyStand = false) {
     const state = yield select()
-    const gameResult = yield gameLogic.endTurn(
+    const playerCards = state.cards.playerCards
+    const enemyCards = state.cards.enemyCards
+
+    let gameResult = yield gameLogic.endTurn(playerCards, enemyCards)
+
+    if (gameResult.result.win) yield put(playerWin())
+    if (gameResult.result.lose) yield put(playerLose())
+}
+
+function* finalTurn() {
+    console.log('FINAL')
+    const state = yield select()
+
+    let gameResult = yield gameLogic.endTurn(
+        state.cards.playerCards,
+        state.cards.enemyCards
+    )
+    gameResult = yield gameLogic.enemyStand(
+        gameResult.playerPoints,
+        gameResult.enemyPoints
+    )
+
+    if (gameResult.result.win) yield put(playerWin())
+    if (gameResult.result.lose) yield put(playerLose())
+    if (gameResult.result.draw) yield put(playerDraw())
+}
+
+function* enemyTurn() {
+    let state = yield select()
+    let enemyWillHit = gameLogic.enemyWillHit(
         state.cards.playerCards,
         state.cards.enemyCards
     )
 
-    if (gameResult.win) yield put(playerWin())
-    if (gameResult.lose) yield put(playerLose())
+    while (enemyWillHit) {
+        yield put(enemyGetCards(1))
+        state = yield select()
+        enemyWillHit = yield gameLogic.enemyWillHit(
+            state.cards.playerCards,
+            state.cards.enemyCards
+        )
+    }
+
+    yield finalTurn()
 }
