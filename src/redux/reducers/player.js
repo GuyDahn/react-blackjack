@@ -3,7 +3,7 @@ import { actionTypes } from '../actions/actionTypes'
 import { GameResult } from '../../classes/GameResult'
 
 export default (state = initialState, action) => {
-    switch (action.type) {
+    switch (action) {
         case actionTypes.WIN:
             console.log('WIN')
             return Object.assign({}, state, {

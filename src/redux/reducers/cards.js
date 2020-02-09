@@ -1,11 +1,11 @@
 import { initialState } from '../../consts/data/initialState'
 import { actionTypes } from '../actions/actionTypes'
-import gameLogic,{ getRandomCards } from '../../gameLogic'
+import gameLogic, { getRandomCards } from '../../gameLogic'
 
 export default (state = initialState, action) => {
-    const { cards, cardsToPush } = getRandomCards(state.cardList, action.payload)
+    const { cards, cardsToPush } = getRandomCards(state.cardList, action)
 
-    switch (action.type) {
+    switch (action) {
         case actionTypes.PLAYER_GET_CARDS:
             return Object.assign({}, state, {
                 playerCards: [...state.playerCards, ...cardsToPush],

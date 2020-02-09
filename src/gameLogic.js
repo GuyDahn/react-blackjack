@@ -1,5 +1,6 @@
 import { GameResult } from './classes/GameResult'
 
+
 export default {
     endTurn: (playerCards, enemyCards) => {
         return checkGameConditions(playerCards, enemyCards)
@@ -32,15 +33,15 @@ function checkGameConditions(playerCards, enemyCards) {
     const playerPoints = sumAllCards(playerCards)
     const enemyPoints = sumAllCards(enemyCards)
     let result = new GameResult(false, false, false)
+
     result.win = playerPoints === 21 || enemyPoints > 21
     result.lose = enemyPoints === 21 || playerPoints > 21
-
 
     return { result, playerPoints, enemyPoints }
 }
 
-function removeCardfromPile(cards, cardID) {
-    return cards.filter(card => card.id !== cardID)
+function removeCardfromPile(cards, cardId) {
+    return cards.filter(card => card.id !== cardId)
 }
 
 export function getRandomCards(cards, numOfCards) {

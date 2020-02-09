@@ -22,7 +22,7 @@ export function GameScreen() {
 
     const dispatch = useDispatch()
     if (!game.gameRunning) {
-        dispatch(startGame())
+        // dispatch(startGame())
     }
 
     return (

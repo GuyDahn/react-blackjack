@@ -28,7 +28,8 @@ export default function App() {
     initialState,
     composeWithDevTools(applyMiddleware(sagaMiddleware))
   )
-  sagaMiddleware.run(rootSaga)
+  sagaMiddleware(rootSaga)
+  
   return (
     <Provider store={store}>
       <GlobalStyle />
