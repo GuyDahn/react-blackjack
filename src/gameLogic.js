@@ -1,8 +1,6 @@
 import { GameResult } from './classes/GameResult'
 
 export default {
-    startGame: dispatch => { },
-
     endTurn: (playerCards, enemyCards) => {
         return checkGameConditions(playerCards, enemyCards)
     }
