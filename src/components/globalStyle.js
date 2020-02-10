@@ -24,18 +24,18 @@ export const GlobalStyle = createGlobalStyle`
   div {
     box-sizing: border-box;
   }
-//   @font-face {
-//     font-family: 'Pixeled';
-//     src: url(${pixelatedFont2}) format('woff2'),
-//         url(${pixelatedFont}) format('woff');
-//     font-weight: normal;
-//     font-style: normal;
-// }
-// @font-face {
-//     font-family: 'Fipps';
-//     src: url(${fippsFont2}) format('woff2'),
-//         url(${fippsFont}) format('woff');
-//     font-weight: normal;
-//     font-style: normal;
-// }
+  @font-face {
+    font-family: 'Pixeled';
+    src: url(${pixelatedFont2}) format('woff2'),
+        url(${pixelatedFont}) format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Fipps';
+    src: url(${fippsFont2}) format('woff2'),
+        url(${fippsFont}) format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 `

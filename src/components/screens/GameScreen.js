@@ -22,11 +22,15 @@ export function GameScreen() {
 
     const dispatch = useDispatch()
     if (!game.gameRunning) {
-        // dispatch(startGame())
+        dispatch(startGame())
     }
 
+    const showNotification =
+        player.result.win || player.result.lose || player.result.draw
+    
     return (
         <FullScreen color={COLORS.GREEN}>
+            {showNotification && <GameResultNotification result={player.result}/>}
             <HUD money={player.money} />
             <EnemyHand cards={enemyCards} />
             <PlayerHand cards={playerCards} />
