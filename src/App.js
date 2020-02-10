@@ -25,9 +25,9 @@ export default function App() {
   return (
     <Provider store={store}>
       <ScanLinesFilter>
-      <Blurry>
-      <GlobalStyle />
-        <GameScreen />
+        <Blurry>
+          <GlobalStyle />
+          <GameScreen />
         </Blurry>
       </ScanLinesFilter>
     </Provider>
