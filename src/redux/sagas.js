@@ -1,4 +1,4 @@
-import { put, takeEvery, select } from 'redux-saga/effects'
+import { put, takeEvery, select, delay } from 'redux-saga/effects'
 import { actionTypes } from './actions/actionTypes'
 import gameLogic from '../gameLogic'
 import {
@@ -21,12 +21,15 @@ function* startGame() {
     yield put(enemyGetCards(2))
 }
 
-function* endTurn(enemyStand = false) {
+function* endTurn() {
     const state = yield select()
     const playerCards = state.cards.playerCards
     const enemyCards = state.cards.enemyCards
 
     let gameResult = yield gameLogic.endTurn(playerCards, enemyCards)
+
+    // to create a 'human-like experience'
+    yield delay(800)
 
     if (gameResult.result.win) yield put(playerWin())
     if (gameResult.result.lose) yield put(playerLose())
@@ -58,6 +61,9 @@ function* enemyTurn() {
     )
 
     while (enemyWillHit) {
+        // to create a 'human-like experience'
+        yield delay(800)
+
         yield put(enemyGetCards(1))
         state = yield select()
         enemyWillHit = yield gameLogic.enemyWillHit(

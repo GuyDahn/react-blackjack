@@ -20,8 +20,8 @@ export function PlayerHand(props) {
                 {props.cards.map((card, i) => (
                     <Offset
                         key={card.id}
-                        left='-15px'
-                        top={`-${15 * i}px`} >
+                        left='-20px'
+                        top={`-${8 * i}px`} >
                         <CardComponent
                             image={card.image}
                             name={card.name}
