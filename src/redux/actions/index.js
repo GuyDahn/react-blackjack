@@ -1,4 +1,5 @@
 import { actionTypes } from './actionTypes'
+import { betValues } from '../../consts/betValues'
 
 export function playerGetCards(numberOfCards) {
     return {
@@ -55,5 +56,12 @@ export function buttonsState(buttonState) {
     return {
         type: actionTypes.BUTTONS_ENABLED,
         payload: buttonState
+    }
+}
+
+export function makeBet(betValue) {
+    return {
+        type: actionTypes.MAKE_BET,
+        payload: betValues
     }
 }

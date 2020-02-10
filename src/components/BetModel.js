@@ -79,19 +79,6 @@ export function BetModel() {
                         ))}
                     </Row>
                 </Container>
-                <Container>
-                    <Row display='flex' justifyContent='center'>
-                        <ModelText>
-                            <h1>Current bet:</h1>
-                            <h2>
-                                <span>$</span>200
-                            </h2>
-                        </ModelText>
-                    </Row>
-                    <Row display='flex' justifyContent='center'>
-                        <BasicButton>PLACE BET</BasicButton>
-                    </Row>
-                </Container>
             </Model>
         </NotificationContainer>
     )
