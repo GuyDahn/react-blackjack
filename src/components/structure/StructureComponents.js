@@ -32,7 +32,7 @@ export const BasicButton = styled.button`
   margin: 0 8px;
 `
 
-// export const ButttonClickAnm = posed.div({
+// export const ButttonClickAnm = posed.button({
 //   pressable: true,
 //   init: { scale: 1 },
 //   press: { scale: 0.9 }

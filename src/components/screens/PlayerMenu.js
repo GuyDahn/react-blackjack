@@ -28,18 +28,20 @@ export function PlayerMenu() {
         dispatch(playerStand())
     }
 
+    console.log(props)
+
     return (
         <MenuContainer>
             <Container>
                 <Row displey='flex' justifyContent='center'>
                     <BasicButton
                         onClick={handlePlayerHit}
-                        disabled={props.standing}>
+                        disabled={props.enabled}>
                         Hit
                     </BasicButton>
                     <BasicButton
                         onClick={handlePlayerStand}
-                        disabled={props.standing}>
+                        disabled={props.enabled}>
                         Stand
                     </BasicButton>
                 </Row>
@@ -49,5 +51,5 @@ export function PlayerMenu() {
 }
 
 PlayerMenu.propTypes = {
-    standing: propTypes.bool
+    enabled: propTypes.bool
 }
