@@ -7,7 +7,7 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 
 import { GameScreen } from './components/screens/GameScreen'
 import { initialState } from './consts/data/initialState'
-import { Blurry } from './components/structure/StructureComponents'
+import { Blurry, ScanLinesFilter } from './components/structure/StructureComponents'
 import createSagaMiddleware from 'redux-saga'
 import rootSaga from './redux/reducers'
 
@@ -24,10 +24,12 @@ export default function App() {
 
   return (
     <Provider store={store}>
+      <ScanLinesFilter>
       <Blurry>
       <GlobalStyle />
         <GameScreen />
-      </Blurry>
+        </Blurry>
+      </ScanLinesFilter>
     </Provider>
   )
 }
