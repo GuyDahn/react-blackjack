@@ -10,7 +10,7 @@ left: 20px;
     & h1,
     h2,
     span {
-      color: white;
+      color: ${COLORS.WHITE};
       margin: 0;
       text-shadow: -5px 1px 0px ${COLORS.SHADOW}
     }
@@ -20,18 +20,18 @@ const MoneyHud = styled.div`
   h1 {
     margin: 0;
     font-size: 16px;
-    color: white;
+    color: ${COLORS.WHITE};
   }
   h2 {
     margin: 0;
     font-size: 36px;
-    color: white;
+    color: ${COLORS.WHITE};
     line-height: 30px;
   }
   span {
     margin: 0;
     font-size: 18px;
-    color: white;
+    color: ${COLORS.WHITE};
   }
 `
 
@@ -40,18 +40,18 @@ const BetHud = styled.div`
   h1 {
     margin: 0;
     font-size: 16px;
-    color: white;
+    color: ${COLORS.WHITE};
   }
   h2 {
     margin: 0;
     font-size: 24px;
-    color: white;
+    color: ${COLORS.WHITE};
     line-height: 24px;
   }
   span {
     margin: 0;
     font-size: 14px;
-    color: white;
+    color: ${COLORS.WHITE};
   }
 `
 

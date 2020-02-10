@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import propTypes from 'prop-types'
 import { Container, Row } from '../components/structure/StructureComponents'
-import { CardComponent } from './CardComponent '
+import { CardComponent } from './CardComponent'
 
 const Offset = styled.div`
    margin-left: ${props => props.left};

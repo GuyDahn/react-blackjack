@@ -9,6 +9,7 @@ import { HUD } from '../screens/hud'
 import { GameResultNotification } from './GameResultNotification '
 import { PlayerMenu } from './PlayerMenu'
 import { startGame } from '../../redux/actions'
+import { BetModel } from '../../components/BetModel'
 
 const HandsContainer = styled.div`
   display: flex;
@@ -40,6 +41,9 @@ export function GameScreen() {
     return (
         <FullScreen color={COLORS.GREEN}>
             {showNotification && <GameResultNotification result={player.result} />}
+
+            <BetModel />
+
             <HUD money={player.money} />
             <EnemyHand cards={enemyCards} showSecondCard={game.playerStand} />
             <HandsContainer>

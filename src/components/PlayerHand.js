@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { Card } from '../classes/Card'
-import { CardComponent } from './CardComponent '
+import { CardComponent } from './CardComponent'
 import { Container, Row } from './structure/StructureComponents'
 
 const Offset = styled.div`
