@@ -22,6 +22,15 @@ export const Row = styled.div`
   props.justifyContent ? props.justifyContent : 'flext-start'};
 `
 
+export const BasicButton = styled.button`
+  background: #eef;
+  box-shadow: inset 0 -3px 0 rgba(50, 50, 200, 0.6);
+  border: solid 3px #333;
+  color: #333;
+  padding: 8px 20px;
+  margin: 5px 8px;
+`
+
 export const Blurry = styled.div`
   filter: blur(0.25px);
 `

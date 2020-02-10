@@ -2,9 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 import { useDispatch } from 'react-redux'
 import { playerGetCards, playerStand } from '../../redux/actions'
-import { Container, Row } from "../structure/StructureComponents"
 import propTypes from 'prop-types'
 import { props } from 'bluebird'
+import {
+    Container,
+    Row,
+    BasicButton
+} from "../structure/StructureComponents"
+
 
 const MenuContainer = styled.div`
     position: fixed;
@@ -27,16 +32,16 @@ export function PlayerMenu() {
         <MenuContainer>
             <Container>
                 <Row displey='flex' justifyContent='center'>
-                    <button
+                    <BasicButton
                         onClick={handlePlayerHit}
                         disabled={props.standing}>
                         Hit
-                    </button>
-                    <button
+                    </BasicButton>
+                    <BasicButton
                         onClick={handlePlayerStand}
                         disabled={props.standing}>
                         Stand
-                    </button>
+                    </BasicButton>
                 </Row>
             </Container>
         </MenuContainer>
