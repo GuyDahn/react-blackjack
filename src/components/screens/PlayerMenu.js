@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { useDispatch } from 'react-redux'
 import { playerGetCards, playerStand } from '../../redux/actions'
 import { Container, Row } from "../structure/StructureComponents"
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
 import { props } from 'bluebird'
 
 const MenuContainer = styled.div`
@@ -43,6 +43,6 @@ export function PlayerMenu() {
     )
 }
 
-PlayerMenu.PropTypes = {
-    standing: PropTypes.bool
+PlayerMenu.propTypes = {
+    standing: propTypes.bool
 }

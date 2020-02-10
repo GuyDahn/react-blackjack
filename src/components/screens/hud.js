@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
 import styled from 'styled-components'
 
 const HudContainer = styled.div`
@@ -20,6 +20,6 @@ export function HUD(props) {
     )
 }
 
-HUD.PropTypes = {
-    money: PropTypes.number.isRequired
+HUD.propTypes = {
+    money: propTypes.number.isRequired
 }
