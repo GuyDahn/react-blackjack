@@ -4,7 +4,7 @@ import playerReducer from './player'
 import gameReducer from './game'
 
 export default combineReducers({
-    cards: cardsReducer,
-    player: playerReducer,
-    game: gameReducer
+  cards: cardsReducer,
+  player: playerReducer,
+  game: gameReducer
 })
