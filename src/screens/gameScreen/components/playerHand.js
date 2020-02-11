@@ -11,7 +11,7 @@ const Offset = styled.div`
   margin-top: ${props => props.top};
 `
 
-export function PlayerHand (props) {
+export function PlayerHand(props) {
   return (
     <Container display='flex'>
       <Row display='flex' justifyContent='center'>

@@ -16,14 +16,14 @@ const MenuContainer = styled.div`
   width: 100%;
 `
 
-export function PlayerMenu (props) {
+export function PlayerMenu(props) {
   const dispatch = useDispatch()
 
-  function handlePlayerHit () {
+  function handlePlayerHit() {
     dispatch(playerGetCard())
   }
 
-  function handlePlayerStand () {
+  function handlePlayerStand() {
     dispatch(playerStand())
   }
 

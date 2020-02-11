@@ -15,7 +15,7 @@ import {
 import { endGameDelay, cardAnimationTime } from '../constants/animations'
 import { GameResult } from '../classes/GameResult'
 
-export default function * root () {
+export default function* root() {
   yield takeEvery(actionTypes.PLAYER_GET_CARD, endTurn)
   yield takeEvery(actionTypes.ENEMY_GET_CARD, endTurn)
   yield takeEvery(actionTypes.START_GAME, startGame)
@@ -23,7 +23,7 @@ export default function * root () {
   yield takeEvery(actionTypes.UPDATE_GAME_RESULT, endGame)
 }
 
-function * startGame () {
+function* startGame() {
   yield put(buttonsState(true))
 
   const state = yield select()
@@ -34,7 +34,7 @@ function * startGame () {
   if (enemyCards.length === 0) yield put(enemyGetCards(2))
 }
 
-function * endTurn (action) {
+function* endTurn(action) {
   yield put(buttonsState(false))
 
   const state = yield select()
@@ -57,7 +57,7 @@ function * endTurn (action) {
   }
 }
 
-function * finalTurn () {
+function* finalTurn() {
   yield put(buttonsState(false))
 
   const state = yield select()
@@ -82,7 +82,7 @@ function * finalTurn () {
   }
 }
 
-function * enemyTurn () {
+function* enemyTurn() {
   yield put(buttonsState(false))
 
   let state = yield select()
@@ -103,10 +103,10 @@ function * enemyTurn () {
     )
   }
 
-  yield * finalTurn()
+  yield* finalTurn()
 }
 
-function * endGame () {
+function* endGame() {
   let state = yield select()
 
   if (state.player.result.win) {
@@ -115,10 +115,10 @@ function * endGame () {
     yield put(updatePlayerMoney(state.player.money + (0 - state.game.betValue)))
   }
 
-  yield * resetGame()
+  yield* resetGame()
 }
 
-function * resetGame () {
+function* resetGame() {
   yield delay(endGameDelay * 2)
 
   yield put(resetCards())
@@ -129,5 +129,5 @@ function * resetGame () {
   yield delay(100)
   yield put(resetGameResult())
 
-  yield * startGame()
+  yield* startGame()
 }

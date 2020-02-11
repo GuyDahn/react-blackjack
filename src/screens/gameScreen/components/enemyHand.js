@@ -10,7 +10,7 @@ const Offset = styled.div`
   margin-top: ${props => props.top};
 `
 
-export function EnemyHand (props) {
+export function EnemyHand(props) {
   return (
     <Container display='flex'>
       <Row display='flex' justifyContent='center'>

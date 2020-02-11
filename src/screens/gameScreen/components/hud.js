@@ -66,7 +66,7 @@ const BetHud = styled.div`
   }
 `
 
-export function HUD (props) {
+export function HUD(props) {
   return (
     <HudContainer>
       <MoneyHud>
