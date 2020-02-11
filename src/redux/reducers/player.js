@@ -13,10 +13,23 @@ export default (state = initialState, action) => {
             return Object.assign({}, state, {
                 result: new GameResult(false, true, false)
             })
+
         case actionTypes.DRAW:
             return Object.assign({}, state, {
                 result: new GameResult(false, false, true)
             })
+
+        case actionTypes.RESET_GAME_RESULT:
+            return Object.assign({}, state, {
+                result: new GameResult(false, false, false)
+            })
+
+
+        case actionTypes.UPDATE_MONEY:
+            return Object.assign({}, state, {
+                money: action.payload
+            })
+
         default:
             return state
     }

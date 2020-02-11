@@ -62,6 +62,25 @@ export function buttonsState(buttonState) {
 export function makeBet(betValue) {
     return {
         type: actionTypes.MAKE_BET,
-        payload: betValues
+        payload: betValue
+    }
+}
+
+export function updatePlayerMoney(value) {
+    return {
+        type: actionTypes.UPDATE_MONEY,
+        payload: value
+    }
+}
+
+export function resetGameResult() {
+    return {
+        type: actionTypes.RESET_GAME_RESULT
+    }
+}
+
+export function resetCards() {
+    return {
+        type: actionTypes.RESET_GAME_CARDS
     }
 }

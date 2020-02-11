@@ -76,7 +76,7 @@ export function BetModel() {
                         {betValues.map(value => (
                             <BetOption
                                 key={value}
-                            onClick={() => handleBetOptionClick(value)}>
+                                onClick={() => handleBetOptionClick(value)}>
                                 <ModelText>
                                     <h2>
                                         <span>$</span>

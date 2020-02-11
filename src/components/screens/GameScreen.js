@@ -41,11 +41,12 @@ export function GameScreen() {
 
     return (
         <FullScreen color={COLORS.GREEN}>
-            {showNotification && <GameResultNotification result={player.result} />}
+            <GameResultNotification show={showNotification} result={player.result} />}
 
-            {!game.betValue && <BetModel />}
+             <BetModel show={!game.betValue} />
 
-            <HUD money={player.money} bet={game.betValue}/>
+            <HUD money={player.money} bet={game.betValue} />
+
             <EnemyHand cards={enemyCards} showSecondCard={game.playerStand} />
             <HandsContainer>
                 <HandRow>
