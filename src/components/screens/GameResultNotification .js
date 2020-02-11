@@ -32,22 +32,43 @@ const ResultText = styled.h1`
 export function GameResultNotification(props) {
 
     return (
-        <NotificationContainer pose='visible' initialPose='hidden'>
-            <div>
-                {props.result.win && (
-                    <ResultText color={COLORS.BLUE}> You Win! </ResultText>
-                )}
-                {props.result.lose && (
-                    <ResultText color={COLORS.RED}> You Lose! </ResultText>
-                )}
-                {props.result.draw && (
-                    <ResultText color={COLORS.GREEN}> Draw! </ResultText>
-                )}
-            </div>
-        </NotificationContainer>
+props.show && (
+      <NotificationContainer pose='visible' initialPose='hidden'>
+        <div>
+          {props.result.win && (
+            <ResultText
+              pose='visible'
+              initialPose='hidden'
+              color={COLORS.BLUE}
+            >
+              You Win!
+            </ResultText>
+          )}
+          {props.result.lose && (
+            <ResultText
+              pose='visible'
+              initialPose='hidden'
+              color={COLORS.RED}
+            >
+              You Lose!
+            </ResultText>
+          )}
+          {props.result.draw && (
+            <ResultText
+              pose='visible'
+              initialPose='hidden'
+              color={COLORS.GREEN}
+            >
+              Draw!
+            </ResultText>
+          )}
+        </div>
+      </NotificationContainer>
+    )
     )
 }
 
 GameResultNotification.propTypes = {
-    result: PropTypes.instanceOf(GameResult)
+    result: PropTypes.instanceOf(GameResult),
+    show: PropTypes.bool
 }

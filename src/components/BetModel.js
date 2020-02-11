@@ -1,24 +1,24 @@
 import React from 'react'
+import propTypes from 'prop-types'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 import posed from 'react-pose'
+
 import { COLORS } from '../consts/colors'
-import {
-    Container,
-    Row
-} from "../components/structure/StructureComponents"
+import { Container, Row } from "../components/structure/StructureComponents"
+import { makeBet } from '../redux/actions'
 import { NotificationContainer } from './structure/ModelComponents'
 import { betValues } from '../consts/betValues'
-import { makeBet } from '../redux/actions'
 
 const Model = styled.div`
-    display: inline-block;
-    padding: 40px 70px;
-    background: ${COLORS.SHADOW};
-    z-index: 9;
-    box-shadow: -8px 8px 0 ${COLORS.SHADOW};
-    border: solid 6px ${COLORS.WHITE}
+  display: inline-block;
+  padding: 40px 70px;
+  background: ${COLORS.SHADOW};
+  z-index: 9;
+  box-shadow: -8px 8px 0 ${COLORS.SHADOW};
+  border: solid 6px ${COLORS.WHITE};
 `
+
 const ModelText = styled.div`
     h1,
     h2{
@@ -27,7 +27,6 @@ const ModelText = styled.div`
         text-align: center;
         text-shadow: -3px 3px ${COLORS.BLUE};
     }
-
     h1 {
     font-size: 20px;
   }
@@ -44,6 +43,11 @@ const ModelText = styled.div`
   }
 `
 
+const ModelAnm = styled.div({
+    visible: { opacity: 1, transition: { duration: 300 } },
+    hidden: { opacity: 0 }
+})
+
 const BetOptionAnm = posed.div({
     hoverable: true,
     init: {
@@ -59,35 +63,42 @@ const BetOption = styled(BetOptionAnm)`
   margin: 0 15px;
 `
 
-export function BetModel() {
+export function BetModel(props) {
     const dispatch = useDispatch()
     const handleBetOptionClick = value => {
         dispatch(makeBet(value))
     }
 
     return (
-        <NotificationContainer>
-            <Model>
-                <ModelText>
-                    <h1>Place bet!</h1>
-                </ModelText>
-                <Container display='flex' flexDirection='row'>
-                    <Row display='flex' justifyContent='space-between'>
-                        {betValues.map(value => (
-                            <BetOption
-                                key={value}
-                                onClick={() => handleBetOptionClick(value)}>
-                                <ModelText>
-                                    <h2>
-                                        <span>$</span>
-                                        {value}
-                                    </h2>
-                                </ModelText>
-                            </BetOption>
-                        ))}
-                    </Row>
-                </Container>
-            </Model>
-        </NotificationContainer>
+        props.show && (
+            <NotificationContainer pose='visible' initialPose='hidden'>
+                <Model>
+                    <ModelText>
+                        <h1>Place bet!</h1>
+                    </ModelText>
+                    <Container display='flex' flexDirection='row'>
+                        <Row display='flex' justifyContent='space-between'>
+                            {betValues.map(value => (
+                                <BetOption
+                                    key={value}
+                                    onClick={() => handleBetOptionClick(value)}
+                                >
+                                    <ModelText>
+                                        <h2>
+                                            <span>$</span>
+                                            {value}
+                                        </h2>
+                                    </ModelText>
+                                </BetOption>
+                            ))}
+                        </Row>
+                    </Container>
+                </Model>
+            </NotificationContainer>
+        )
     )
+}
+
+BetModel.propTypes = {
+    show: propTypes.bool
 }
