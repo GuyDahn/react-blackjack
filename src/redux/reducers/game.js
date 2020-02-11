@@ -15,6 +15,10 @@ export default (state = initialState, action) => {
             return Object.assign({}, state, {
                 buttonsEnabled: actionTypes.payload
             })
+        case actionTypes.MAKE_BET:
+            return Object.assign({}, state, {
+                betValue: actionTypes.payload
+            })
         default:
             return state
     }

@@ -1,14 +1,15 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 import posed from 'react-pose'
 import { COLORS } from '../consts/colors'
 import {
     Container,
-    Row,
-    BasicButton
+    Row
 } from "../components/structure/StructureComponents"
 import { NotificationContainer } from './structure/ModelComponents'
 import { betValues } from '../consts/betValues'
+import { makeBet } from '../redux/actions'
 
 const Model = styled.div`
     display: inline-block;
@@ -59,7 +60,12 @@ const BetOption = styled(BetOptionAnm)`
 `
 
 export function BetModel() {
-    return ( 
+    const dispatch = useDispatch()
+    const handleBetOptionClick = value => {
+        dispatch(makeBet(value))
+    }
+
+    return (
         <NotificationContainer>
             <Model>
                 <ModelText>
@@ -68,7 +74,9 @@ export function BetModel() {
                 <Container display='flex' flexDirection='row'>
                     <Row display='flex' justifyContent='space-between'>
                         {betValues.map(value => (
-                            <BetOption>
+                            <BetOption
+                                key={value}
+                            onClick={() => handleBetOptionClick(value)}>
                                 <ModelText>
                                     <h2>
                                         <span>$</span>

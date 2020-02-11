@@ -56,24 +56,25 @@ const BetHud = styled.div`
 `
 
 export function HUD(props) {
-    return (
-        <HudContainer>
-            <MoneyHud>
-                <h1> money </h1>
-                <h2>
-                    <span> $ </span> {props.money}
-                </h2>
-            </MoneyHud>
-            <BetHud>
-                <h1> bet </h1>
-                <h2>
-                    <span> $ </span> 100
+  return (
+    <HudContainer>
+      <MoneyHud>
+        <h1> money </h1>
+        <h2>
+          <span> $ </span> {props.money}
         </h2>
-            </BetHud>
-        </HudContainer>
-    )
+      </MoneyHud>
+      <BetHud>
+        <h1> bet </h1>
+        <h2>
+          <span> $ </span> {props.bet}
+        </h2>
+      </BetHud>
+    </HudContainer>
+  )
 }
 
 HUD.propTypes = {
-    money: propTypes.number.isRequired
+  money: propTypes.number.isRequired,
+  bet: propTypes.number.isRequired
 }

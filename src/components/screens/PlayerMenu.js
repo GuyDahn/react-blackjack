@@ -28,8 +28,6 @@ export function PlayerMenu() {
         dispatch(playerStand())
     }
 
-    console.log(props)
-
     return (
         <MenuContainer>
             <Container>
