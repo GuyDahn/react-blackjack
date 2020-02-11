@@ -8,7 +8,7 @@ export default {
     const playerPoints = sumAllCards(playerCards)
     const enemyPoints = sumAllCards(enemyCards)
 
-    if (enemyPoints < playerPoints) {
+    if (enemyPoints < 17 || enemyPoints === 17) {
       return true
     }
   },
