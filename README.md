@@ -4,7 +4,6 @@
   - [Running the project](#running-the-project)
   - [Screenshots](#screenshots)
     - [Main View](#main-view)
-    - [Mobile View](#mobile-view)
   - [Techstack](#tech-stack)
   - [TODO](#todo)
 
