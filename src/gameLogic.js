@@ -5,7 +5,7 @@ export default {
     return checkGameConditions(playerCards, enemyCards)
   },
   enemyWillHit: (playerCards, enemyCards) => {
-    const playerPoints = sumAllCards(playerCards)
+    // const playerPoints = sumAllCards(playerCards) // will implement in later versions
     const enemyPoints = sumAllCards(enemyCards)
 
     if (enemyPoints < 17 || enemyPoints === 17) {
