@@ -15,7 +15,7 @@ after the players turn, the dealer (game logics) will reveal the card and hit as
 
 My goal in this project was to create a fun, easy game while implementing my newly acquired skills in React, Redux, Styled-Components and Posed animations library.
 
-Demo: SOON
+Demo: https://guydahn.github.io/react-blackjack/
 
 ## Running the project
 
@@ -42,6 +42,6 @@ Main screen (Fully Responsive)
 
 - [x] Create decent README.md file.
 - [x] Learn and use Redux as a state manager.
-- [ ] Deploy in Heroku or netlify.
+- [x] Deploy in Heroku.
 - [ ] Add Double and Split to game options (as per full Blackjack Rules).
 - [ ] Create a Player vs Player mode using socket.io.
