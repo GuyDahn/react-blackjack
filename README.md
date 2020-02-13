@@ -10,10 +10,11 @@
 
 # Portfolio Website
 
-This is a Blackjack game made in React.js using redux and styled components. The player places a bet and then chooses to HIT or STAND.
-after the players turn, the dealer (game logics) will reveal the card and hit as long as the dealer has 17 in count.
+This is a Blackjack game made in React.js using redux and styled-components. The player places a bet and then chooses to HIT or STAND.
 
-My goal in this project was to create a fun, easy game, while implementing my newly acquired skills in React, Redux, Styled-Components and Posed animations library.
+after the players turn, the dealer (game logics) will reveal the card and hit as long as the dealer has 17 in the count (basic blackjack rules).
+
+My goal in this project was to create a fun, easy game while implementing my newly acquired skills in React, Redux, Styled-Components and Posed animations library.
 
 Demo: SOON
 
@@ -35,14 +36,13 @@ Main screen (Fully Responsive)
 ## Techstack
 - React.js
 - Redux / Saga
-- styled components
+- styled-components
 - Posed animations
 
 ## TODO
 
 - [x] Create decent README.md file.
-- [x] Fix all projects descriptions.
-- [x] Work page - add data.
-- [x] Education page - add data.
-- [ ] Add toggle dark/light mode option
-
+- [x] Learn and use Redux as a state manager.
+- [ ] Deploy in Heroku or netlify.
+- [ ] Add Double and Split to game options (as per full Blackjack Rules).
+- [ ] Create a Player vs Player mode using socket.io.
