@@ -37,6 +37,8 @@
     "test-silent": "jest || exit 0",
     "eject": "react-scripts eject",
     "tests": "tests",
-    "update": "update"
+    "update": "update",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   }
 }
