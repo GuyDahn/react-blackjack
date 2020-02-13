@@ -5,7 +5,7 @@ export default {
     return checkGameConditions(playerCards, enemyCards)
   },
   enemyWillHit: (playerCards, enemyCards) => {
-    // const playerPoints = sumAllCards(playerCards) // will implement in later versions
+    const playerPoints = sumAllCards(playerCards) // will implement in later versions
     const enemyPoints = sumAllCards(enemyCards)
 
     if (enemyPoints < 17 || enemyPoints === 17) {
@@ -21,8 +21,8 @@ function sumAllCards (cards) {
 
 function enemyStand (playerPoints, enemyPoints) {
   let result = new GameResult(false, false, false)
-  result.win = playerPoints > enemyPoints && playerPoints <= 21
-  result.lose = enemyPoints > playerPoints && enemyPoints <= 21
+  result.win = playerPoints > enemyPoints && playerPoints < 21 || playerPoints === 21
+  result.lose = enemyPoints > playerPoints && enemyPoints < 21
   result.draw = playerPoints === enemyPoints
 
   return { result: result }
