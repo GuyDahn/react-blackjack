@@ -5,7 +5,9 @@
   "engines": {
     "node": "12.13.0"
   },
+  "homepage": "http://guydahn.github.io/react-blackjack",
   "dependencies": {
+    "gh-pages": "^2.2.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-pose": "^4.0.10",
